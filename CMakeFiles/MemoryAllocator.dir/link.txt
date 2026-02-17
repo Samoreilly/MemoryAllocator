@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/MemoryAllocator.dir/link.d CMakeFiles/MemoryAllocator.dir/main.cpp.o CMakeFiles/MemoryAllocator.dir/alloc.cpp.o -o MemoryAllocator

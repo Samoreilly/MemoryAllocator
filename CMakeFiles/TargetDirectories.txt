@@ -1,0 +1,3 @@
+/home/sam-o-reilly/MemoryAllocator/CMakeFiles/MemoryAllocator.dir
+/home/sam-o-reilly/MemoryAllocator/CMakeFiles/edit_cache.dir
+/home/sam-o-reilly/MemoryAllocator/CMakeFiles/rebuild_cache.dir
