@@ -1,3 +1,6 @@
+#pragma once
+
+#include "allocutil.h"
 #include <cstddef>
 
 
@@ -9,12 +12,16 @@ struct Block {
     Block* prev;
 };
 
-struct Start {
-    Block* head = nullptr;
+struct Head {
+    Block* ptr = nullptr;
 };
 
 
 class Alloc {
+
+    AllocUtil util;
+    //first block - serves no purpose other than pointing to nodes
+    Head* head;
 
 public:
     
