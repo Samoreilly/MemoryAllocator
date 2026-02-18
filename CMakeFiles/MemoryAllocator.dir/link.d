@@ -4,6 +4,7 @@ MemoryAllocator: \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/MemoryAllocator.dir/main.cpp.o \
   CMakeFiles/MemoryAllocator.dir/alloc.cpp.o \
+  CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
@@ -43,6 +44,8 @@ MemoryAllocator: \
 CMakeFiles/MemoryAllocator.dir/main.cpp.o:
 
 CMakeFiles/MemoryAllocator.dir/alloc.cpp.o:
+
+CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
 

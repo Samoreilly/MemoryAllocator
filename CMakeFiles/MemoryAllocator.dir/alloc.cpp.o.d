@@ -1,6 +1,8 @@
 CMakeFiles/MemoryAllocator.dir/alloc.cpp.o: \
  /home/sam-o-reilly/MemoryAllocator/alloc.cpp /usr/include/stdc-predef.h \
- /home/sam-o-reilly/MemoryAllocator/alloc.h /usr/include/c++/13/cstddef \
+ /home/sam-o-reilly/MemoryAllocator/alloc.h \
+ /home/sam-o-reilly/MemoryAllocator/allocutil.h \
+ /usr/include/c++/13/cstddef \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \

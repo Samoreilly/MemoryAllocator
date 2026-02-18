@@ -4,4 +4,5 @@ project(MemoryAllocator)
 add_executable(
   MemoryAllocator main.cpp
                   alloc.cpp
+                  allocutil.cpp
 ) 

@@ -4,6 +4,7 @@
 CMakeFiles/MemoryAllocator.dir/alloc.cpp.o
  /home/sam-o-reilly/MemoryAllocator/alloc.cpp
  /home/sam-o-reilly/MemoryAllocator/alloc.h
+ /home/sam-o-reilly/MemoryAllocator/allocutil.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -198,9 +199,30 @@ CMakeFiles/MemoryAllocator.dir/alloc.cpp.o
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
+CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o
+ /home/sam-o-reilly/MemoryAllocator/allocutil.cpp
+ /home/sam-o-reilly/MemoryAllocator/alloc.h
+ /home/sam-o-reilly/MemoryAllocator/allocutil.h
+ /usr/include/c++/13/cstddef
+ /usr/include/c++/13/pstl/pstl_config.h
+ /usr/include/features-time64.h
+ /usr/include/features.h
+ /usr/include/stdc-predef.h
+ /usr/include/x86_64-linux-gnu/bits/long-double.h
+ /usr/include/x86_64-linux-gnu/bits/timesize.h
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h
+ /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h
+ /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
+
 CMakeFiles/MemoryAllocator.dir/main.cpp.o
  /home/sam-o-reilly/MemoryAllocator/main.cpp
  /home/sam-o-reilly/MemoryAllocator/alloc.h
+ /home/sam-o-reilly/MemoryAllocator/allocutil.h
  /usr/include/c++/13/cstddef
  /usr/include/c++/13/pstl/pstl_config.h
  /usr/include/features-time64.h
@@ -235,5 +257,6 @@ MemoryAllocator
  /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so
  /usr/lib/x86_64-linux-gnu/libc_nonshared.a
  /home/sam-o-reilly/MemoryAllocator/CMakeFiles/MemoryAllocator.dir/alloc.cpp.o
+ /home/sam-o-reilly/MemoryAllocator/CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o
  /home/sam-o-reilly/MemoryAllocator/CMakeFiles/MemoryAllocator.dir/main.cpp.o
 

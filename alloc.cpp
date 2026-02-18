@@ -1,4 +1,5 @@
 #include "alloc.h"
+#include "allocutil.h"
 #include <cassert>
 #include <cstddef>
 #include <cstdio>
@@ -12,7 +13,7 @@ void* Alloc::alloc(size_t size) {
     while(block->next != nullptr) {
 
         if(size + sizeof(Block) <= block->size) {
-            bool x = util.splitBlock(block);             
+            bool x = util.splitBlock(block, size);             
         }
     }
 

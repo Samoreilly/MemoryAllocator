@@ -1,6 +1,6 @@
-CMakeFiles/MemoryAllocator.dir/main.cpp.o: \
- /home/sam-o-reilly/MemoryAllocator/main.cpp /usr/include/stdc-predef.h \
- /home/sam-o-reilly/MemoryAllocator/alloc.h \
+CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o: \
+ /home/sam-o-reilly/MemoryAllocator/allocutil.cpp \
+ /usr/include/stdc-predef.h \
  /home/sam-o-reilly/MemoryAllocator/allocutil.h \
  /usr/include/c++/13/cstddef \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -14,4 +14,5 @@ CMakeFiles/MemoryAllocator.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
  /usr/include/c++/13/pstl/pstl_config.h \
- /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+ /home/sam-o-reilly/MemoryAllocator/alloc.h

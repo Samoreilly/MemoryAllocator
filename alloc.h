@@ -19,12 +19,17 @@ struct Head {
 
 class Alloc {
 
+    Head* head;  
     AllocUtil util;
-    //first block - serves no purpose other than pointing to nodes
-    Head* head;
 
 public:
     
+    Alloc() : head(new Head{}), util(head) {   
+        //first block - serves no purpose other than pointing to nodes
+        head->ptr = new Block{};
+        head->ptr->next = new Block{ 65536, nullptr, nullptr};
+    }
+
     void* alloc(size_t size);
     void freealloc(void* ptr);
 

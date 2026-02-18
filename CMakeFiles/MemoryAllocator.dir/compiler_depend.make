@@ -3,6 +3,7 @@
 
 CMakeFiles/MemoryAllocator.dir/alloc.cpp.o: alloc.cpp \
   alloc.h \
+  allocutil.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -197,8 +198,28 @@ CMakeFiles/MemoryAllocator.dir/alloc.cpp.o: alloc.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
+CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o: allocutil.cpp \
+  alloc.h \
+  allocutil.h \
+  /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
+
 CMakeFiles/MemoryAllocator.dir/main.cpp.o: main.cpp \
   alloc.h \
+  allocutil.h \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/features-time64.h \
@@ -232,10 +253,13 @@ MemoryAllocator: /lib/x86_64-linux-gnu/libc.so.6 \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
   /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
   CMakeFiles/MemoryAllocator.dir/alloc.cpp.o \
+  CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o \
   CMakeFiles/MemoryAllocator.dir/main.cpp.o
 
 
 CMakeFiles/MemoryAllocator.dir/main.cpp.o:
+
+CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a:
 
@@ -339,6 +363,10 @@ CMakeFiles/MemoryAllocator.dir/alloc.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/mman_ext.h:
+
 /usr/include/c++/13/bits/string_view.tcc:
 
 /usr/include/features.h:
@@ -367,10 +395,6 @@ CMakeFiles/MemoryAllocator.dir/alloc.cpp.o:
 
 /usr/include/c++/13/bits/allocator.h:
 
-/usr/include/c++/13/bits/locale_classes.h:
-
-/usr/include/ctype.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/c++/13/bits/char_traits.h:
@@ -382,6 +406,8 @@ CMakeFiles/MemoryAllocator.dir/alloc.cpp.o:
 /usr/include/c++/13/type_traits:
 
 /usr/include/assert.h:
+
+allocutil.cpp:
 
 /usr/include/c++/13/bits/hash_bytes.h:
 
@@ -428,6 +454,12 @@ alloc.h:
 /usr/include/c++/13/bit:
 
 /usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/c++/13/bits/locale_classes.h:
+
+/usr/include/ctype.h:
+
+/usr/include/c++/13/cstdlib:
 
 /usr/include/c++/13/bits/stl_construct.h:
 
@@ -541,8 +573,6 @@ alloc.cpp:
 
 /usr/include/c++/13/cstdio:
 
-/usr/include/c++/13/cstdlib:
-
 /usr/include/c++/13/debug/assertions.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
@@ -572,6 +602,8 @@ alloc.cpp:
 /usr/include/c++/13/istream:
 
 /usr/include/c++/13/string_view:
+
+allocutil.h:
 
 /usr/include/features-time64.h:
 
@@ -658,7 +690,3 @@ main.cpp:
 /usr/include/c++/13/system_error:
 
 /usr/include/x86_64-linux-gnu/bits/mman-shared.h:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/x86_64-linux-gnu/bits/mman_ext.h:

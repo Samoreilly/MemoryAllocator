@@ -160,6 +160,30 @@ alloc.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAllocator.dir/build.make CMakeFiles/MemoryAllocator.dir/alloc.cpp.s
 .PHONY : alloc.cpp.s
 
+allocutil.o: allocutil.cpp.o
+.PHONY : allocutil.o
+
+# target to build an object file
+allocutil.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAllocator.dir/build.make CMakeFiles/MemoryAllocator.dir/allocutil.cpp.o
+.PHONY : allocutil.cpp.o
+
+allocutil.i: allocutil.cpp.i
+.PHONY : allocutil.i
+
+# target to preprocess a source file
+allocutil.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAllocator.dir/build.make CMakeFiles/MemoryAllocator.dir/allocutil.cpp.i
+.PHONY : allocutil.cpp.i
+
+allocutil.s: allocutil.cpp.s
+.PHONY : allocutil.s
+
+# target to generate assembly for a file
+allocutil.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAllocator.dir/build.make CMakeFiles/MemoryAllocator.dir/allocutil.cpp.s
+.PHONY : allocutil.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -197,6 +221,9 @@ help:
 	@echo "... alloc.o"
 	@echo "... alloc.i"
 	@echo "... alloc.s"
+	@echo "... allocutil.o"
+	@echo "... allocutil.i"
+	@echo "... allocutil.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

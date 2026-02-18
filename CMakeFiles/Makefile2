@@ -85,12 +85,12 @@ clean: CMakeFiles/MemoryAllocator.dir/clean
 CMakeFiles/MemoryAllocator.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAllocator.dir/build.make CMakeFiles/MemoryAllocator.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAllocator.dir/build.make CMakeFiles/MemoryAllocator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sam-o-reilly/MemoryAllocator/CMakeFiles --progress-num=1,2,3 "Built target MemoryAllocator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sam-o-reilly/MemoryAllocator/CMakeFiles --progress-num=1,2,3,4 "Built target MemoryAllocator"
 .PHONY : CMakeFiles/MemoryAllocator.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MemoryAllocator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sam-o-reilly/MemoryAllocator/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sam-o-reilly/MemoryAllocator/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MemoryAllocator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sam-o-reilly/MemoryAllocator/CMakeFiles 0
 .PHONY : CMakeFiles/MemoryAllocator.dir/rule
@@ -102,7 +102,7 @@ MemoryAllocator: CMakeFiles/MemoryAllocator.dir/rule
 # codegen rule for target.
 CMakeFiles/MemoryAllocator.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MemoryAllocator.dir/build.make CMakeFiles/MemoryAllocator.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sam-o-reilly/MemoryAllocator/CMakeFiles --progress-num=1,2,3 "Finished codegen for target MemoryAllocator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/sam-o-reilly/MemoryAllocator/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target MemoryAllocator"
 .PHONY : CMakeFiles/MemoryAllocator.dir/codegen
 
 # clean rule for target.
