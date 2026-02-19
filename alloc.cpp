@@ -8,17 +8,8 @@
 
 
 void* Alloc::alloc(size_t size) {
-    Block* block = head->ptr;
-    
-    while(block->next != nullptr) {
 
-        if(size + sizeof(Block) <= block->size) {
-            bool x = util.splitBlock(block, size);             
-        }
-    }
-
-    
-    return nullptr;
+    return util.allocate(size);
 
 }
 
