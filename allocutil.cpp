@@ -28,37 +28,29 @@ void* AllocUtil::allocate(size_t size) {
 
 void* AllocUtil::removeBlock(Block* block, size_t aligned_size) {
 
+    size_t original_size = block->size;
+
     if(block->size < aligned_size + sizeof(Block)) {
-
-        block->next = nullptr;
-        block->prev = nullptr;
-        block->free = false;
-
         return (void*)(block + 1);    
     }
 
 
-    Block* remainder = (Block*)((char*) (block + 1) + aligned_size);
-    remainder->size = block->size - aligned_size - sizeof(Block);
-
-    //replace the old block
-    remainder->prev = block->prev;
+    Block* remainder = (Block*)((char*) block + 1 + aligned_size);
+    remainder->size = original_size - aligned_size - sizeof(Block);
+    remainder->free = true;
+  
+    
     remainder->next = block->next;
+    remainder->prev = block;
 
-    if(remainder->prev) {
-        block->prev->next = remainder;
-    }else {
-        head->ptr = remainder;   
-    }
-
-    if(remainder->next) {
+    if(block->next) {
         block->next->prev = remainder;
     }
 
+    block->next = remainder;
     block->size = aligned_size;
-    block->next = nullptr;
-    block->prev = nullptr;
     block->free = false;
+
     return (void*)(block + 1);
 }
 
@@ -132,11 +124,25 @@ void AllocUtil::relink(Block* block) {
 //merge deallocated block with 1st node if free
 bool AllocUtil::coalesceHead(Block* block) {
     
-    if(!head->ptr->free || ((char*) block + sizeof(Block) + block->size != (char*) head->ptr )) return false;
+    Block* curr = head->ptr;
+    
+    char* block_bytes = ((char*) block + sizeof(Block) + block->size);
+    
+    while(curr) {
+        
+        if(curr->free && block_bytes == (char*) curr) {
+            curr->size += block->size + sizeof(Block);
+            
+            std::cout << "Coalescing\n";
+            return true;
+        }
 
-    head->ptr->size += block->size + sizeof(Block);
+        curr = curr->next;
+    
+    }
 
-    return true;
+    std::cout << "No coalescing made\n";
+    return false;
 
 }
 
