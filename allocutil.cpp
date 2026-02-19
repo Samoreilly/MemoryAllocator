@@ -9,7 +9,7 @@
 /*
     === === === === ALLOCATION CODE === === === ===
 */
-void* AllocUtil::allocate(int size) {
+void* AllocUtil::allocate(size_t size) {
     Block* block = head->ptr;
 
     int aligned_size = ((size + alignment - 1) / alignment) * alignment; 
@@ -26,7 +26,7 @@ void* AllocUtil::allocate(int size) {
 }
 
 
-void* AllocUtil::removeBlock(Block* block, int aligned_size) {
+void* AllocUtil::removeBlock(Block* block, size_t aligned_size) {
 
     if(block->size < aligned_size + sizeof(Block)) {
 
@@ -62,7 +62,7 @@ void* AllocUtil::removeBlock(Block* block, int aligned_size) {
     return (void*)(block + 1);
 }
 
-Block* AllocUtil::findFreeBlock(int aligned_size) {
+Block* AllocUtil::findFreeBlock(size_t aligned_size) {
     Block* b = head->ptr;
 
     Block* largestBlock = nullptr;
@@ -82,12 +82,12 @@ Block* AllocUtil::findFreeBlock(int aligned_size) {
     }
 
     std::cout << "No free block found";
-    return b->size >= aligned_size ? b : nullptr;
+    return nullptr;
         
 }
 
 
-bool AllocUtil::canSplit(Block* block, int aligned_size) {
+bool AllocUtil::canSplit(Block* block, size_t aligned_size) {
 
     return aligned_size <= block->size; 
 }

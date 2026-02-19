@@ -29,11 +29,11 @@ public:
         === === === === ALLOCATION CODE === === === ===
     */
 
-    void* allocate(int size);
-    void* splitBlock(Block* free_block, int aligned_size);
-    void* removeBlock(Block* free_block, int aligned_size);
-    Block* findFreeBlock(int aligned_size); 
-    bool canSplit(Block* block, int aligned_size);
+    void* allocate(size_t size);
+    void* splitBlock(Block* free_block, size_t aligned_size);
+    void* removeBlock(Block* free_block, size_t aligned_size);
+    Block* findFreeBlock(size_t aligned_size); 
+    bool canSplit(Block* block, size_t aligned_size);
 
     /*
         === === === === DE-ALLOCATION CODE === === === ===
