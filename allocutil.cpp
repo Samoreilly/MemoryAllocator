@@ -31,6 +31,7 @@ void* AllocUtil::removeBlock(Block* block, size_t aligned_size) {
     size_t original_size = block->size;
 
     if(block->size < aligned_size + sizeof(Block)) {
+        block->free = false;
         return (void*)(block + 1);    
     }
 
@@ -57,19 +58,12 @@ void* AllocUtil::removeBlock(Block* block, size_t aligned_size) {
 Block* AllocUtil::findFreeBlock(size_t aligned_size) {
     Block* b = head->ptr;
 
-    Block* largestBlock = nullptr;
-    int maxSize = std::numeric_limits<int>::lowest();
-
     while(b) {
         
         if(canSplit(b, aligned_size) && b->free) {
             return b;        
         }   
         
-        if((b->size > maxSize) && b->free) {
-            largestBlock = b;
-            maxSize = b->size;
-        }
         b = b->next;
     }
 
@@ -81,7 +75,7 @@ Block* AllocUtil::findFreeBlock(size_t aligned_size) {
 
 bool AllocUtil::canSplit(Block* block, size_t aligned_size) {
 
-    return aligned_size + sizeof(Block)<= block->size; 
+    return block->size >= aligned_size;
 }
 
 /*
