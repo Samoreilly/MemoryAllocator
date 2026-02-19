@@ -24,20 +24,18 @@ class Alloc {
     Head* head;  
     AllocUtil util;
     char* memory;
-    size_t t_size;
+    static constexpr size_t t_size = 65536;
 
 public:
     
-    Alloc() : head(new Head{}), t_size(65536), util(head) {   
+    Alloc() : head(new Head{}), util(head) {   
 
         memory = static_cast<char*>(std::malloc(t_size));
 
         //first block - serves no purpose other than pointing to nodes
-        head = new Head{};
-        
         //initialize it to 1 big block of memory (64kb)
         head->ptr = reinterpret_cast<Block*>(memory);
-        head->ptr->size = t_size;
+        head->ptr->size = t_size - sizeof(Block);
         head->ptr->next = nullptr;
         head->ptr->prev = nullptr;
         head->ptr->free = true;

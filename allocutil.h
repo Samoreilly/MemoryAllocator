@@ -30,7 +30,6 @@ public:
     */
 
     void* allocate(size_t size);
-    void* splitBlock(Block* free_block, size_t aligned_size);
     void* removeBlock(Block* free_block, size_t aligned_size);
     Block* findFreeBlock(size_t aligned_size); 
     bool canSplit(Block* block, size_t aligned_size);
@@ -40,7 +39,5 @@ public:
     */
     
     void deallocate(void* ptr);
-    void relink(Block* block);
-    bool coalesceHead(Block* block);
-
+    void coalesce(Block* block);
 };

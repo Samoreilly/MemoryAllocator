@@ -10,11 +10,11 @@ int main() {
 
     int* ptr = (int*)c.alloc(8 * sizeof(int));
    
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 8; i++) {
         ptr[i] = i * 10;
     }
 
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 8; i++) {
         std::cout << &ptr[i] << " = " << ptr[i] << "\n";
     }
 

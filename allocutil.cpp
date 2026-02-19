@@ -35,7 +35,7 @@ void* AllocUtil::removeBlock(Block* block, size_t aligned_size) {
     }
 
 
-    Block* remainder = (Block*)((char*) block + 1 + aligned_size);
+    Block* remainder = (Block*)((char*) block + aligned_size + sizeof(Block));
     remainder->size = original_size - aligned_size - sizeof(Block);
     remainder->free = true;
   
@@ -81,7 +81,7 @@ Block* AllocUtil::findFreeBlock(size_t aligned_size) {
 
 bool AllocUtil::canSplit(Block* block, size_t aligned_size) {
 
-    return aligned_size <= block->size; 
+    return aligned_size + sizeof(Block)<= block->size; 
 }
 
 /*
@@ -92,89 +92,41 @@ void AllocUtil::deallocate(void* ptr) {
 
     //get header
     Block* block = (Block*) ptr - 1;
-
-    relink(block);
+    block->free = true;          
+    
+    coalesce(block);
 
 }
 
+void AllocUtil::coalesce(Block* block) {
+    Block* b = block;
 
-//relink node at head
-void AllocUtil::relink(Block* block) {
-    
-    if (head->ptr) {
-               
-        if(coalesceHead(block)) {
-
-            std::cout << "Coalesced at head\n";
-            //block merged, no need to manage pointers
-            return;
-        }
-
-        head->ptr->prev = block;
-    }
-
-    block->next = head->ptr;
-    block->prev = nullptr;
-
-
-    head->ptr = block;
-
-}
-
-//merge deallocated block with 1st node if free
-bool AllocUtil::coalesceHead(Block* block) {
-    
-    Block* curr = head->ptr;
-    
-    char* block_bytes = ((char*) block + sizeof(Block) + block->size);
-    
-    while(curr) {
+    // merge forward
+    while(b->next && b->next->free &&
+          (char*)b + sizeof(Block) + b->size == (char*)b->next) {
         
-        if(curr->free && block_bytes == (char*) curr) {
-            curr->size += block->size + sizeof(Block);
-            
-            std::cout << "Coalescing\n";
-            return true;
-        }
+        Block* next = b->next;
+        b->size += sizeof(Block) + next->size;
+        b->next = next->next;
 
-        curr = curr->next;
-    
+        if(b->next) {
+            b->next->prev = b;
+        }
     }
 
-    std::cout << "No coalescing made\n";
-    return false;
+    // merge backward
+    while(b->prev && b->prev->free &&
+          (char*)b->prev + sizeof(Block) + b->prev->size == (char*)b) {
+        
+        Block* prev = b->prev;
 
+        prev->size += sizeof(Block) + b->size;
+        prev->next = b->next;
+        
+        if(b->next) {
+            b->next->prev = prev;
+        }
+        b = prev;
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
