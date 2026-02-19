@@ -10,6 +10,7 @@ struct Block {
     size_t size;
     Block* next;
     Block* prev;
+    bool free {true};
 };
 
 struct Head {

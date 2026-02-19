@@ -10,6 +10,11 @@ struct Head;
  /
 */
 
+/*
+    When splitting a block up, we must remove the aligned_size and sizeOf(block) from the original block 
+    Then set the aligned_block prev, next to nullptr marking it as allocated
+*/
+
 class AllocUtil {
 
 public:
@@ -20,15 +25,22 @@ public:
     
     AllocUtil(Head* h) : head(h) {}
 
+    /*
+        === === === === ALLOCATION CODE === === === ===
+    */
+
     void* allocate(int size);
     void* splitBlock(Block* free_block, int aligned_size);
     void* removeBlock(Block* free_block, int aligned_size);
     Block* findFreeBlock(int aligned_size); 
     bool canSplit(Block* block, int aligned_size);
 
-
     /*
-        When splitting a block up, we must remove the aligned_size and sizeOf(block) from the original block 
-        Then set the aligned_block prev, next to nullptr marking it as allocated
+        === === === === DE-ALLOCATION CODE === === === ===
     */
+    
+    void deallocate(void* ptr);
+    void relink(Block* block);
+    bool coalesceHead(Block* block);
+
 };

@@ -5,6 +5,10 @@
 
 
 
+
+/*
+    === === === === ALLOCATION CODE === === === ===
+*/
 void* AllocUtil::allocate(int size) {
     Block* block = head->ptr;
 
@@ -28,6 +32,8 @@ void* AllocUtil::removeBlock(Block* block, int aligned_size) {
 
         block->next = nullptr;
         block->prev = nullptr;
+        block->free = false;
+
         return (void*)(block + 1);    
     }
 
@@ -52,7 +58,7 @@ void* AllocUtil::removeBlock(Block* block, int aligned_size) {
     block->size = aligned_size;
     block->next = nullptr;
     block->prev = nullptr;
-    
+    block->free = false;
     return (void*)(block + 1);
 }
 
@@ -64,11 +70,11 @@ Block* AllocUtil::findFreeBlock(int aligned_size) {
 
     while(b) {
         
-        if(canSplit(b, aligned_size)) {
+        if(canSplit(b, aligned_size) && b->free) {
             return b;        
         }   
         
-        if(b->size > largestBlock->size) {
+        if((b->size > largestBlock->size) && b->free) {
             largestBlock = b;
         }
         b = b->next;
@@ -82,10 +88,84 @@ Block* AllocUtil::findFreeBlock(int aligned_size) {
 
 bool AllocUtil::canSplit(Block* block, int aligned_size) {
 
-    return aligned_size <= block->size;
-    
+    return aligned_size <= block->size; 
+}
+
+/*
+    === === === === DE-ALLOCATION CODE === === === ===
+*/
+
+void AllocUtil::deallocate(void* ptr) {
+
+    //get header
+    Block* block = (Block*) ptr - 1;
+
+    relink(block);
 
 }
+
+
+//relink node at head
+void AllocUtil::relink(Block* block) {
+    
+    if (head->ptr) {
+               
+        if(coalesceHead(block)) {
+
+            std::cout << "Coalesced at head\n";
+            //block merged, no need to manage pointers
+            return;
+        }
+
+        head->ptr->prev = block;
+    }
+
+    block->next = head->ptr;
+    block->prev = nullptr;
+
+
+    head->ptr = block;
+
+}
+
+//merge deallocated block with 1st node if free
+bool AllocUtil::coalesceHead(Block* block) {
+    
+    if(!head->ptr->free || ((char*) block + sizeof(Block) + block->size != (char*) head )) return false;
+
+    head->ptr->size += block->size + sizeof(Block);
+
+    return true;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

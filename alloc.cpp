@@ -18,7 +18,5 @@ void* Alloc::alloc(size_t size) {
 
 
 void Alloc::freealloc(void* ptr) {
-
-
-
+    return util.deallocate(ptr);
 }
