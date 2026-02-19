@@ -20,7 +20,7 @@ class AllocUtil {
 public:
 
     Head* head;
-    int alignment = 8;
+    size_t alignment = 8;
 
     
     AllocUtil(Head* h) : head(h) {}

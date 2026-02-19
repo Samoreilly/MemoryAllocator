@@ -1,7 +1,7 @@
 #include "allocutil.h"
 #include "alloc.h"
 #include <iostream>
-#include <limits>
+
 
 
 
@@ -12,7 +12,7 @@
 void* AllocUtil::allocate(size_t size) {
     Block* block = head->ptr;
 
-    int aligned_size = ((size + alignment - 1) / alignment) * alignment; 
+    size_t aligned_size = ((size + alignment - 1) / alignment) * alignment; 
 
     Block* free_block = findFreeBlock(aligned_size);
     if(!free_block) {
