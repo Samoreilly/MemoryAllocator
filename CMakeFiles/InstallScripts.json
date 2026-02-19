@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/sam-o-reilly/MemoryAllocator/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
