@@ -12,7 +12,7 @@
 void* AllocUtil::allocate(int size) {
     Block* block = head->ptr;
 
-    int aligned_size = ((size + alignment + 1) / alignment) * alignment; 
+    int aligned_size = ((size + alignment - 1) / alignment) * alignment; 
 
     Block* free_block = findFreeBlock(aligned_size);
     if(!free_block) {
@@ -65,8 +65,8 @@ void* AllocUtil::removeBlock(Block* block, int aligned_size) {
 Block* AllocUtil::findFreeBlock(int aligned_size) {
     Block* b = head->ptr;
 
-    Block* largestBlock = b;
-    largestBlock->size = std::numeric_limits<int>::lowest();
+    Block* largestBlock = nullptr;
+    int maxSize = std::numeric_limits<int>::lowest();
 
     while(b) {
         
@@ -74,8 +74,9 @@ Block* AllocUtil::findFreeBlock(int aligned_size) {
             return b;        
         }   
         
-        if((b->size > largestBlock->size) && b->free) {
+        if((b->size > maxSize) && b->free) {
             largestBlock = b;
+            maxSize = b->size;
         }
         b = b->next;
     }
@@ -131,7 +132,7 @@ void AllocUtil::relink(Block* block) {
 //merge deallocated block with 1st node if free
 bool AllocUtil::coalesceHead(Block* block) {
     
-    if(!head->ptr->free || ((char*) block + sizeof(Block) + block->size != (char*) head )) return false;
+    if(!head->ptr->free || ((char*) block + sizeof(Block) + block->size != (char*) head->ptr )) return false;
 
     head->ptr->size += block->size + sizeof(Block);
 
