@@ -1,3 +1,4 @@
+Sortve only a memory pool for now as memory is allocated and deallocated from a 64kb block of memory
 
 Intrusive free-list - sort by address
 Easy for memory coalescing (merging memory blocks)

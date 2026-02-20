@@ -1,6 +1,7 @@
 #include "alloc.h"
 #include <iostream>
 #include <iterator>
+#include <memory>
 
 int main() {
 

@@ -8,9 +8,9 @@
 //size if of current block, Block* points to next block of data
 
 struct Block {
-    size_t size;
     Block* next;
     Block* prev;
+    size_t size;
     bool free {true};
 };
 

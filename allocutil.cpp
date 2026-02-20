@@ -10,8 +10,7 @@
     === === === === ALLOCATION CODE === === === ===
 */
 void* AllocUtil::allocate(size_t size) {
-    Block* block = head->ptr;
-
+    
     size_t aligned_size = ((size + alignment - 1) / alignment) * alignment; 
 
     Block* free_block = findFreeBlock(aligned_size);
